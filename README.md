@@ -10,43 +10,43 @@ You can see my program on GitHub at - https://github.com/krishnamohan77/ETH_Begn
 ## Executing Program
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/. Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., CustomToken.sol). Copy and paste the following code into the file:
 
-#### code
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
-
-contract CustomToken {
-
-    // Public variables to store the details about the coin
-    string public tokenName = "CustomToken";
-    string public tokenSymbol = "CTK";
-    uint256 public totalSupply = 0;
-
-    // Mapping to store balances of addresses
-    mapping(address => uint256) public balances;
-
-    // Event to log minting actions
-    event Mint(address indexed to, uint256 value);
-
-    // Event to log burning actions
-    event Burn(address indexed from, uint256 value);
-
-    // Mint function to increase the total supply and balance of the specified address
-    function mint(address _to, uint256 _amount) public {
-        require(_amount > 0, "Amount must be greater than zero"); // Ensure the amount is positive
-        totalSupply += _amount;
-        balances[_to] += _amount;
-        emit Mint(_to, _amount);
+    // SPDX-License-Identifier: MIT
+    pragma solidity 0.8.18;
+    
+    contract CustomToken {
+    
+        // Public variables to store the details about the coin
+        string public tokenName = "CustomToken";
+        string public tokenSymbol = "CTK";
+        uint256 public totalSupply = 0;
+    
+        // Mapping to store balances of addresses
+        mapping(address => uint256) public balances;
+    
+        // Event to log minting actions
+        event Mint(address indexed to, uint256 value);
+    
+        // Event to log burning actions
+        event Burn(address indexed from, uint256 value);
+    
+        // Mint function to increase the total supply and balance of the specified address
+        function mint(address _to, uint256 _amount) public {
+            require(_amount > 0, "Amount must be greater than zero"); // Ensure the amount is positive
+            totalSupply += _amount;
+            balances[_to] += _amount;
+            emit Mint(_to, _amount);
+        }
+    
+        // Burn function to decrease the total supply and balance of the specified address
+        function burn(address _from, uint256 _amount) public {
+            require(balances[_from] >= _amount, "Insufficient balance to burn"); // Ensure the balance is sufficient
+    
+            totalSupply -= _amount;
+            balances[_from] -= _amount;
+            emit Burn(_from, _amount);
+        }
     }
 
-    // Burn function to decrease the total supply and balance of the specified address
-    function burn(address _from, uint256 _amount) public {
-        require(balances[_from] >= _amount, "Insufficient balance to burn"); // Ensure the balance is sufficient
-
-        totalSupply -= _amount;
-        balances[_from] -= _amount;
-        emit Burn(_from, _amount);
-    }
-}
 To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to `0.8.18` (or another compatible version), and then click on the "Compile CustomToken.sol" button.
 
 Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the CustomToken contract from the dropdown menu, and then click on the "Deploy" button.
