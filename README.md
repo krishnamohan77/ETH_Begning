@@ -1,11 +1,10 @@
-# CustomToken Smart Contract
+CustomToken Contract: Error Handling with Require, Revert, and Assert
 
-## Overview
+The 'CustomToken' contract in Solidity demonstrates the use of require, revert, and assert statements for error handling. This code helps to understand the use of error handling by these statements in a token contract.
 
-The `CustomToken` smart contract is a simple ERC20-like token implementation on the Ethereum blockchain. It enables fundamental token operations such as minting and burning tokens, as well as tracking the balances of various addresses. The main features of the `CustomToken` contract include:
+Description
 
-- **Minting Tokens**: Allows for the creation of new tokens and assigns them to a specified address.
-- **Burning Tokens**: Facilitates the destruction of tokens from a specified address.
-- **Balance Tracking**: Maintains a record of the token balances of all participating addresses.
+The 'CustomToken' Solidity contract includes minting and burning functions to demonstrate error handling mechanisms. The 'mint' function increases the total supply and the balance of the specified address, while the 'burn' function decreases them. The 'burn' function uses the 'require' statement to ensure the specified address has enough balance to 'burn' the tokens. This contract demonstrates how 'require' can be used to validate conditions, ensuring the contract operates correctly and securely.
 
-The contract is designed to be straightforward and easy to understand, making it an ideal starting point for learning about token development on the Ethereum blockchain.
+Installing
+my program on GitHub at -
